@@ -5,13 +5,11 @@ import {
   useEffect,
   useState,
 } from "react";
-import { toast } from "react-toastify";
 import Layout from "../components/Layout";
 import Loader from "../components/Loader";
 import { User } from "../models/entities/User";
-import { createCookie } from "../services/cookieService";
-import { getMe } from "../services/userService";
-import { getCookie } from "../utils/getCookie";
+import { createUser } from "../services/userService";
+import { getItem, setItem } from "../utils/localStorageHelper";
 
 type AuthContextType = {
   userData: User | null;
@@ -21,39 +19,25 @@ type AuthContextType = {
 const AuthContext = createContext<any>(null!);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [userData, setUserData] = useState<User | null>(null);
+  const [userData, setUserData] = useState<User | null>(getItem("user"));
   const [loading, setLoading] = useState(true);
 
   const handleSetUserData = useCallback((userData: User | null) => {
     setUserData(userData);
-  }, []);
-
-  const fetchUserData = useCallback(async () => {
-    const data = await getMe();
-    setUserData(data);
+    setItem("user", userData);
   }, []);
 
   const initAuth = useCallback(async () => {
     if (!userData) {
-      await createCookie();
-      await fetchUserData();
+      const user = await createUser();
+      handleSetUserData(user);
     }
     setLoading(false);
-  }, [fetchUserData, userData]);
+  }, [userData, handleSetUserData]);
 
   useEffect(() => {
     initAuth();
   }, [initAuth]);
-
-  useEffect(() => {
-    if (!getCookie("btc-session"))
-      toast.warn(
-        "This page uses cookies, by closing this message you will accept the use of cookies.",
-        {
-          autoClose: false,
-        },
-      );
-  }, []);
 
   const value: AuthContextType = { userData, handleSetUserData };
   return (

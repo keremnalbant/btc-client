@@ -8,3 +8,7 @@ export const getMe = async () => {
 export const getActiveUsers = async () => {
   return await request.get<any, number>("user/active-users");
 };
+
+export const createUser = async () => {
+  return await request.post<any, User>("/user");
+};

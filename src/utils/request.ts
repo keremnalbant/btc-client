@@ -1,4 +1,5 @@
 import axios, { type AxiosResponse } from "axios";
+import { getToken } from "./localStorageHelper";
 
 const baseUrl = `${process.env.REACT_APP_BASE_URL}/api/v1`;
 
@@ -14,6 +15,14 @@ const request = axios.create({
 
 request.interceptors.request.use(
   async (config: any) => {
+    debugger;
+    if (!config.headers.Authorization) {
+      const token = getToken();
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+        return config;
+      }
+    }
     return config;
   },
   async (error: any) => await Promise.reject(error),

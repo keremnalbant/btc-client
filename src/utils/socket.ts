@@ -1,4 +1,5 @@
 import { EventName, ISocketService } from "../models";
+import { getToken } from "./localStorageHelper";
 import { publishEvent } from "./subscriber";
 
 const { io } = await import("socket.io-client");
@@ -12,6 +13,9 @@ export default class SocketService implements ISocketService {
     const socket = io(process.env.REACT_APP_BASE_URL as string, {
       path: process.env.REACT_APP_SOCKET_PATH,
       withCredentials: true,
+      extraHeaders: {
+        Authorization: `Bearer ${getToken()}`,
+      },
     });
     this.socket = socket;
   }
