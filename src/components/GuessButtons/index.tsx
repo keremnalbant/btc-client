@@ -52,7 +52,7 @@ const GuessButtons = ({ gameId }: GuessButtonsProps) => {
           guess === Guess.Down
             ? "disabled:bg-red-400"
             : "disabled:bg-slate-700 disabled:bg-opacity-20"
-        } disabled:bg-slate-700 py-2 px-8 bg-white bg-opacity-50 rounded-xl text-red-600 hover:text-white font-bold hover:bg-red-600 transition-all text-3xl`}
+        } py-2 px-8 bg-white bg-opacity-50 rounded-xl text-red-600 hover:text-white font-bold hover:bg-red-600 transition-all text-3xl`}
       >
         <TbArrowBadgeDownFilled />
       </button>
