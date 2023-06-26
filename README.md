@@ -5,16 +5,28 @@
 ## Demo Video
 https://github.com/keremnalbant/btc-server/assets/43813768/f5e875a9-3e10-439a-be41-c2fb4c3d8488
 
+## System Design and More
+[See Whimsical](https://whimsical.com/btc-system-design-MqAKNkaZWDkYBkHSjAyPv1)
+
+## Functionalities
+Real-time notifications and data polling with Websockets (Socket.io)
+Users can continue to make guesses even they close and reopen their browsers, even server is restarted, unless they clean their cookies
+Loginless persisted data with cookies
+AWS Services used for deployment
+Custom hooks, contexts, and services for socket/event/state management
+Coincap API
+Toast messages
+TailwindCSS
+ESLint
+Prettier
+TypeScript
+
+## Available Scripts
+
 Yarn is used on this project, so I suggest you use yarn.
 You can install yarn globally with: `npm install --global yarn`
 
 After installing yarn run `yarn install` to install the dependencies.
-
-## System Design and More
-[See Whimsical](https://whimsical.com/btc-system-design-MqAKNkaZWDkYBkHSjAyPv1)
-
-
-## Available Scripts
 
 ### `yarn start`
 
