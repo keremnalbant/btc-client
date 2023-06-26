@@ -1,10 +1,10 @@
-# BTC Client
+# BTC Client [![Build and Deploy React App to S3 Bucket](https://github.com/keremnalbant/btc-client/actions/workflows/prod.yaml/badge.svg)](https://github.com/keremnalbant/btc-client/actions/workflows/prod.yaml)
 
 ## Demo Video
 https://github.com/keremnalbant/btc-server/assets/43813768/f5e875a9-3e10-439a-be41-c2fb4c3d8488
 
 Yarn is used on this project, so I suggest you use yarn.
-You can install yarn as globally with: `npm install --global yarn`
+You can install yarn globally with: `npm install --global yarn`
 
 After installing yarn run `yarn install` to install the dependencies.
 
@@ -16,7 +16,7 @@ After installing yarn run `yarn install` to install the dependencies.
 
 ### `yarn start`
 
-Runs the app in the development mode.
+Runs the app in development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.
