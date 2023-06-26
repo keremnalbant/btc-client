@@ -7,7 +7,7 @@ const request = axios.create({
   timeout: 100000,
   headers: {
     Accept: "application/json",
-    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Origin": process.env.REACT_APP_APP_URL,
   },
   withCredentials: true,
 });
