@@ -1,5 +1,5 @@
 ---
-name: Build and React App to S3 Bucket
+name: Build and Deploy React App to S3 Bucket
 on:
   push:
     branches: [main]

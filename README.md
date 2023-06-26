@@ -1,5 +1,8 @@
 # BTC Client
 
+## Demo Video
+https://github.com/keremnalbant/btc-server/assets/43813768/f5e875a9-3e10-439a-be41-c2fb4c3d8488
+
 Yarn is used on this project, so I suggest you use yarn.
 You can install yarn as globally with: `npm install --global yarn`
 
