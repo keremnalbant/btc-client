@@ -9,17 +9,19 @@ https://github.com/keremnalbant/btc-server/assets/43813768/f5e875a9-3e10-439a-be
 [See Whimsical](https://whimsical.com/btc-system-design-MqAKNkaZWDkYBkHSjAyPv1)
 
 ## Functionalities
-Real-time notifications and data polling with Websockets (Socket.io)
-Users can continue to make guesses even they close and reopen their browsers, even server is restarted, unless they clean their cookies
-Loginless persisted data with cookies
-AWS Services used for deployment
-Custom hooks, contexts, and services for socket/event/state management
-Coincap API
-Toast messages
-TailwindCSS
-ESLint
-Prettier
-TypeScript
+- Real-time notifications and data polling with Websockets (Socket.io)
+- Users can continue to make guesses even they close and reopen their browsers, even more server is restarted, unless they clean their cookies
+- Loginless persisted data with cookies
+- Custom hooks, contexts, and services for socket/event/state management
+- Strongly type safe
+- Coincap API
+- Toast messages on disconnect, connect, result of the game (you won, you lost etc.)
+- TailwindCSS
+- ESLint
+- Prettier
+- TypeScript
+- AWS Services used for deployment, CI/CD with GitHub Actions
+- CloudFront used for distribution, AWS S3 used for hosting, Domain/DNS management achieved via GoDaddy
 
 ## Available Scripts
 
