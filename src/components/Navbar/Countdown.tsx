@@ -20,7 +20,7 @@ const Countdown = () => {
 
   return (
     <div className="flex justify-center">
-      {remainingTime <= 2 ? (
+      {remainingTime <= 1 ? (
         <Loader />
       ) : (
         <span className="flex items-center text-3xl font-bold">
