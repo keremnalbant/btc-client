@@ -10,12 +10,13 @@ https://github.com/keremnalbant/btc-server/assets/43813768/f5e875a9-3e10-439a-be
 
 ## Functionalities
 - Real-time notifications and data polling with Websockets (Socket.io)
-- Users can continue to make guesses even they close and reopen their browsers, even more server is restarted, unless they clean their cookies
-- Loginless persisted data with cookies
+- Users can continue to make guesses even they close and reopen their browsers, even more server is restarted, unless they clean their ~~cookies~~
+_cookies are deprecated since S3 with CloudFront distribution does not support cookies, now we use LocalStorage with bearer tokens_
+- Loginless persisted data with ~~cookies~~ LocalStorage
 - Custom hooks, contexts, and services for socket/event/state management
 - Strongly type safe
 - Coincap API
-- Toast messages on disconnect, connect, result of the game (you won, you lost etc.)
+- Toast messages on disconnect, connect, the result of the game (you won, you lost etc.)
 - TailwindCSS
 - ESLint
 - Prettier
