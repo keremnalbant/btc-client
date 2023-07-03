@@ -1,4 +1,4 @@
-import { EventName } from ".";
+import { EventName } from '.';
 
 export interface ISocketService {
   emit: (event: EventName, data: any) => void;

@@ -1,8 +1,8 @@
-import { EventName, ISocketService } from "../models";
-import { getToken } from "./localStorageHelper";
-import { publishEvent } from "./subscriber";
+import { EventName, ISocketService } from '../models';
+import { getToken } from './localStorageHelper';
+import { publishEvent } from './subscriber';
 
-const { io } = await import("socket.io-client");
+const { io } = await import('socket.io-client');
 
 export default class SocketService implements ISocketService {
   private static socketService: ISocketService | null;
@@ -18,6 +18,20 @@ export default class SocketService implements ISocketService {
       },
     });
     this.socket = socket;
+  }
+  emit = (eventName: EventName, data: any) => {
+    this.socket?.emit(eventName, data);
+  };
+
+  onAny = () => {
+    this.socket?.onAny(this.listener);
+    this.subscribeConnected();
+    this.subscribeDisconnected();
+  };
+
+  static getSocketService(): ISocketService {
+    if (!this.socketService) this.socketService = new SocketService();
+    return this.socketService;
   }
 
   // onAny does not trigger connect and disconnect events, we subscribe manually
@@ -38,19 +52,4 @@ export default class SocketService implements ISocketService {
       Object.keys(EventName)[Object.values(EventName).indexOf(eventName)];
     if (EventName[key as keyof typeof EventName]) publishEvent(eventName, args);
   };
-
-  emit = (event: EventName, data: any) => {
-    this.socket?.emit(event, data);
-  };
-
-  onAny = () => {
-    this.socket?.onAny(this.listener);
-    this.subscribeConnected();
-    this.subscribeDisconnected();
-  };
-
-  static getSocketService(): ISocketService {
-    if (!this.socketService) this.socketService = new SocketService();
-    return this.socketService;
-  }
 }

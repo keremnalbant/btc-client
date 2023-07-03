@@ -8,6 +8,7 @@
     "mikestead.dotenv",
     "streetsidesoftware.code-spell-checker",
     "usernamehw.errorlens",
-    "igorsbitnev.error-gutters"
+    "igorsbitnev.error-gutters",
+    "Orta.vscode-jest"
   ]
 }

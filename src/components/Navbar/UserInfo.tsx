@@ -1,7 +1,7 @@
-import { toast } from "react-toastify";
-import { useAuth } from "../../contexts/AuthContext";
-import { useSubscriber } from "../../hooks/useSubscriber";
-import { EventName } from "../../models";
+import { toast } from 'react-toastify';
+import { useAuth } from '../../contexts/AuthContext';
+import { useSubscriber } from '../../hooks/useSubscriber';
+import { EventName, ToastMessages } from '../../models';
 
 const UserInfo = () => {
   const { userData, handleSetUserData } = useAuth();
@@ -12,9 +12,9 @@ const UserInfo = () => {
       if (userData) {
         const currentScore = userData.score;
         if (currentScore < e[0]) {
-          toast.success(`Congratulations! You've made a successful guess!`);
+          toast.success(ToastMessages.SUCCESSFUL_GUESS);
         } else {
-          toast.error(`Sorry! You've made a wrong guess!`);
+          toast.error(ToastMessages.WRONG_GUESS);
         }
         handleSetUserData({ ...userData, score: e[0] });
       }
@@ -25,7 +25,7 @@ const UserInfo = () => {
   return (
     <div className="flex">
       <img
-        src={`https://api.multiavatar.com/${userData?.id}.png`}
+        src={`${process.env.REACT_APP_AVATAR_API}/${userData?.id}.png`}
         className="w-10 h-10"
       />
       <div className="flex flex-col justify-center ml-2">

@@ -1,9 +1,9 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import { useSubscriber } from "../hooks/useSubscriber";
-import { EventName, ISocketService } from "../models";
-import SocketService from "../utils/socket";
-import { useAuth } from "./AuthContext";
+import { createContext, useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { useSubscriber } from '../hooks/useSubscriber';
+import { EventName, ISocketService, ToastMessages } from '../models';
+import SocketService from '../utils/socket';
+import { useAuth } from './AuthContext';
 
 export type SocketServiceType = {
   socketService: ISocketService | null;
@@ -21,14 +21,14 @@ const SocketProvider = ({ children }: { children: React.ReactNode }) => {
     EventName.Connect,
     false,
     (e: any, prev: any) => {
-      toast.success("Connected to the server!");
+      toast.success(ToastMessages.CONNECTED);
       return e[0];
     },
   );
 
   useSubscriber(EventName.Disconnect, undefined, (e: any, prev: any) => {
     setIsConnected(false);
-    toast.error("Disconnected from the server!");
+    toast.error(ToastMessages.DISCONNECTED);
   });
 
   useEffect(() => {

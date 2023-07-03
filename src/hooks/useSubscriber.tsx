@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
-import { EventName } from "../models";
-import { removeEvent, subscribeEvent } from "../utils/subscriber";
+import { useEffect, useRef, useState } from 'react';
+import { EventName } from '../models';
+import { removeEvent, subscribeEvent } from '../utils/subscriber';
 
 export function useSubscriber<T>(
   eventName: EventName,
@@ -12,19 +12,20 @@ export function useSubscriber<T>(
   const [data, setData] = useState<T>(defaultValue);
 
   const stateRef = useRef(data);
-  const setMyState = (data: T) => {
+
+  const handleSetState = (data: T) => {
     stateRef.current = data;
     setData(data);
   };
 
   const handleCallback = (param: any) => {
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
       const tempData = callback(param[0], stateRef.current);
       if (tempData) {
-        setMyState(tempData);
+        handleSetState(tempData);
       }
     } else {
-      setMyState(param[0]);
+      handleSetState(param[0]);
     }
   };
 

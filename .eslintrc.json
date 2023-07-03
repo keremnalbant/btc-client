@@ -5,6 +5,7 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
+    "react-app/jest",
     "eslint:recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",

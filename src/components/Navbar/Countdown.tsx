@@ -1,6 +1,6 @@
-import { useSubscriber } from "../../hooks/useSubscriber";
-import { EventName } from "../../models";
-import Loader from "../Loader";
+import { useSubscriber } from '../../hooks/useSubscriber';
+import { EventName } from '../../models';
+import Loader from '../Loader';
 
 const Countdown = () => {
   const [remainingTime] = useSubscriber<number>(
@@ -15,7 +15,7 @@ const Countdown = () => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
 
-    return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
   };
 
   return (

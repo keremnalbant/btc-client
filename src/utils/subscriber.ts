@@ -1,26 +1,33 @@
-import { EventEmitter } from "events";
-import { EventName } from "../models";
+/* Actually this pattern (event bus) is not that necessary,
+but it is a good example of how to use the event emitter in typescript.
+*/
+
+import { EventEmitter } from 'events';
+import { EventName } from '../models';
 
 const eventEmitter = new EventEmitter();
 
 export function removeEvent(
-  type: EventName,
+  eventName: EventName,
   callback: (...args: any[]) => void,
 ) {
-  eventEmitter.removeListener(type, callback);
+  eventEmitter.removeListener(eventName, callback);
 }
 
 export function subscribeEvent(
-  type: EventName,
+  eventName: EventName,
   callback: (...args: any[]) => void,
 ) {
-  eventEmitter.addListener(type, callback);
+  eventEmitter.addListener(eventName, callback);
 }
 
-export function onceEvent(type: EventName, callback: (...args: any[]) => void) {
-  eventEmitter.once(type, callback);
+export function onceEvent(
+  eventName: EventName,
+  callback: (...args: any[]) => void,
+) {
+  eventEmitter.once(eventName, callback);
 }
 
-export function publishEvent(type: EventName, ...args: any[]) {
-  eventEmitter.emit(type, args);
+export function publishEvent(eventName: EventName, ...args: any[]) {
+  eventEmitter.emit(eventName, args);
 }

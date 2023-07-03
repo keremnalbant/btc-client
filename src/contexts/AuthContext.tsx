@@ -4,27 +4,27 @@ import {
   useContext,
   useEffect,
   useState,
-} from "react";
-import Layout from "../components/Layout";
-import Loader from "../components/Loader";
-import { User } from "../models/entities/User";
-import { createUser } from "../services/userService";
-import { getItem, setItem } from "../utils/localStorageHelper";
+} from 'react';
+import Layout from '../components/Layout';
+import Loader from '../components/Loader';
+import { User } from '../models/entities/User';
+import { createUser } from '../services/userService';
+import { getItem, setItem } from '../utils/localStorageHelper';
 
 type AuthContextType = {
   userData: User | null;
   handleSetUserData: (userData: User | null) => void;
 };
 
-const AuthContext = createContext<any>(null!);
+const AuthContext = createContext<AuthContextType>(null!);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [userData, setUserData] = useState<User | null>(getItem("user"));
+  const [userData, setUserData] = useState<User | null>(getItem('user'));
   const [loading, setLoading] = useState(true);
 
   const handleSetUserData = useCallback((userData: User | null) => {
     setUserData(userData);
-    setItem("user", userData);
+    setItem('user', userData);
   }, []);
 
   const initAuth = useCallback(async () => {
@@ -58,4 +58,3 @@ const useAuth = (): AuthContextType => {
 };
 
 export { AuthProvider, useAuth };
-

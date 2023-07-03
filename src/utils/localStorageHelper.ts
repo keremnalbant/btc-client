@@ -8,7 +8,7 @@ export const getItem = (key: string) => {
 };
 
 export const getToken = () => {
-  const value = localStorage.getItem("user");
+  const value = localStorage.getItem('user');
   if (!value) return null;
   return JSON.parse(value).id;
 };
