@@ -8,7 +8,7 @@ export function useSubscriber<T>(
   callback: any = null,
   depList: any[] = [],
   subscribe = true,
-): [T, Function] {
+): [T, React.Dispatch<React.SetStateAction<T>>] {
   const [data, setData] = useState<T>(defaultValue);
 
   const stateRef = useRef(data);
