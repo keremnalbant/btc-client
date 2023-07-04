@@ -3,6 +3,7 @@ const Loader = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
+      data-testid="loader"
       className="animate-spin h-10 w-10"
       x="0px"
       y="0px"

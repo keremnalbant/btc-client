@@ -1,6 +1,6 @@
-import Countdown from "./Countdown";
-import CurrentPlayers from "./CurrentPlayers";
-import UserInfo from "./UserInfo";
+import Countdown from './Countdown';
+import CurrentPlayers from './CurrentPlayers';
+import UserInfo from './UserInfo';
 
 const Navbar = () => {
   return (

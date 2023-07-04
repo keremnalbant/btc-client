@@ -14,13 +14,13 @@ const Arrow = ({ difference }: ArrowProps) => {
                         w-[1rem]
                         ${
                           difference && difference >= 0
-                            ? "fill-green-600"
-                            : "fill-red-600"
+                            ? 'fill-green-600'
+                            : 'fill-red-600'
                         }
                         ${
                           difference && difference >= 0
-                            ? "rotate-180"
-                            : "rotate-0"
+                            ? 'rotate-180'
+                            : 'rotate-0'
                         }
                         `}
     >

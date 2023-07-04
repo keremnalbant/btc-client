@@ -1,6 +1,12 @@
-import { Guess } from "../models";
-import request from "../utils/request";
+import { GuessEnum } from '../models';
+import request from '../utils/request';
 
-export const makeGuess = async (guess: Guess) => {
-  return await request.post(`/guess?guess=${guess}`);
+const prefix = '/guess';
+
+export const makeGuess = async (guess: GuessEnum) => {
+  return await request.post(prefix, { guess });
+};
+
+export const getGuess = async () => {
+  return await request.get<any, GuessEnum | null>(prefix);
 };

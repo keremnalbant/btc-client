@@ -1,5 +1,5 @@
-import axios, { type AxiosResponse } from "axios";
-import { getToken } from "./localStorageHelper";
+import axios, { type AxiosResponse } from 'axios';
+import { getToken } from './localStorageHelper';
 
 const baseUrl = `${process.env.REACT_APP_BASE_URL}/api/v1`;
 
@@ -7,15 +7,14 @@ const request = axios.create({
   baseURL: baseUrl,
   timeout: 100000,
   headers: {
-    Accept: "application/json",
-    "Access-Control-Allow-Origin": process.env.REACT_APP_APP_URL,
+    Accept: 'application/json',
+    'Access-Control-Allow-Origin': process.env.REACT_APP_APP_URL,
   },
   withCredentials: true,
 });
 
 request.interceptors.request.use(
   async (config: any) => {
-    debugger;
     if (!config.headers.Authorization) {
       const token = getToken();
       if (token) {

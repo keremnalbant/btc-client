@@ -1,7 +1,7 @@
-import { useCallback, useEffect } from "react";
-import { useSubscriber } from "../../hooks/useSubscriber";
-import { EventName } from "../../models";
-import { getActiveUsers } from "../../services/userService";
+import { useCallback, useEffect } from 'react';
+import { useSubscriber } from '../../hooks/useSubscriber';
+import { EventName } from '../../models';
+import { getActiveUsers } from '../../services/userService';
 
 const CurrentPlayers = () => {
   const [count, setCount] = useSubscriber(
