@@ -1,4 +1,4 @@
-export enum Guess {
+export enum GuessEnum {
   Up = 'up',
   Down = 'down',
 }

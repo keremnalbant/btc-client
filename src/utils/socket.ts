@@ -19,6 +19,7 @@ export default class SocketService implements ISocketService {
     });
     this.socket = socket;
   }
+
   emit = (eventName: EventName, data: any) => {
     this.socket?.emit(eventName, data);
   };
